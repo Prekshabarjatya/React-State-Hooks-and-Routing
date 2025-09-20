@@ -3,13 +3,13 @@ Thi repo is a continuation of my documented tracking of the FreeCodeCamp Certifi
 
 ## Content:
 
-### Workshops:
+### Workshops: (Follow along tutorials)
 - Toggle Text App
 - Fruit Search App
 - Superhero Application Form
 - Shopping List App
 
-### Labs:
+### Labs: (Build on my own)
 - Color Picker App
 - One-Time Password Generator
 - Event RSVP
