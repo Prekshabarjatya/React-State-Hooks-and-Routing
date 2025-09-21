@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+input, button {
+  padding: 6px;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 10px;
+  cursor: pointer;
+}
