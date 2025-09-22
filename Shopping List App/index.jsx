@@ -1,4 +1,4 @@
-const { useState } = React;
+const { useState, useMemo, useCallback } = React;
 
 const items = [
   "Apples",
@@ -13,20 +13,31 @@ const items = [
   "Dish Soap",
 ];
 
+let prevToggleItem = null;
+
 export const ShoppingList = () => {
   const [query, setQuery] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
 
-console.log("Filtering items...")
-  const filteredItems = items.filter((item) => 
-    item.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredItems = useMemo(() => {
+    console.log("Filtering items...");
+    return items.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
+  }, [query]);
 
-  const toggleItem = (item) => {
+  const toggleItem = useCallback((item) => {
     setSelectedItems((prev) =>
       prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
     );
-  };
+  }, [setSelectedItems]);
+
+  if (prevToggleItem !== toggleItem) {
+    console.log("New toggleItem function");
+    prevToggleItem = toggleItem;
+  } else {
+    console.log("Current toggleItem function");
+  }
 
   return (
     <div className="container">
@@ -66,3 +77,4 @@ console.log("Filtering items...")
     </div>
   );
 };
+
